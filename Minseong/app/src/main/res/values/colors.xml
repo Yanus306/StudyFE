@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#424242</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="check_300">#3B42FF</color>
+    <color name="check_250">#6065FD</color>
+    <color name="check_200">#8589FB</color>
+    <color name="check_150">#ABADF9</color>
+    <color name="check_100">#D0D1F7</color>
+    <color name="check_50">#E2E3F6</color>
+
+    <color name="orange_history">#FF9D00</color>
+    <color name="orange_circle">#FFA920</color>
+    <color name="check_green">#23B000</color>
+
+    <color name="gray_50">#F5F5F5</color>
+    <color name="gray_150">#D9D9D9</color>
+</resources>
