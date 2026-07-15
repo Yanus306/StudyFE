@@ -1,0 +1,152 @@
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    background-color: #f5f7fa; /* 부드럽고 밝은 회색 바탕 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333333;
+}
+
+/* 날씨 앱 전체 컨테이너 */
+.weather-container {
+    background-color: #ffffff; /* 깔끔한 화이트 배경 */
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* 은은한 그림자 효과 */
+}
+
+/* 내부 레이아웃 */
+.weather-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* 요소 간의 간격 정렬 */
+}
+
+/* 검색창 영역 */
+.searchBar {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.searchBar input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 30px;
+    outline: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+}
+
+.searchBar input:focus {
+    border-color: #cbd5e1;
+    background-color: #ffffff;
+}
+
+.searchBar button {
+    padding: 12px 20px;
+    background-color: #333333; /* 심플한 블랙/다크그레이 포인트 */
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.searchBar button:hover {
+    background-color: #555555;
+}
+
+/* 도시 이름 스타일 */
+#area {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 15px;
+}
+
+/* 날씨 설명 (흐림, 맑음 등) */
+#description {
+    font-size: 16px;
+    color: #64748b;
+    margin-bottom: 5px;
+    animation: fadeIn 0.5s ease; /* 나타날 때 부드럽게 */
+}
+
+/* 메인 온도 스타일 (#temp) */
+#temp {
+    font-size: 56px;      /* 폰트 크기를 대폭 키움 */
+    font-weight: 300;     /* 두께를 얇게 처리하여 세련된 미니멀 룩 완성 */
+    color: #1a1a1a;
+    margin: 15px 0 5px 0; /* 위아래 적절한 여백 */
+}
+/* 기타 날씨 데이터 (체감온도, 최고/최저) */
+[weatherData] {
+    font-size: 14px;
+    color: #475569;
+    animation: fadeIn 0.5s ease; /* 나타날 때 부드럽게 */
+}
+
+/* 체감온도는 살짝 강조 */
+#feels_like {
+    font-size: 15px;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease; /* 나타날 때 부드럽게 */
+}
+
+/* 최고/최저 온도를 가로로 배치하고 싶을 때를 위한 세팅 */
+#temp_max, #temp_min {
+    display: inline-block;
+    margin: 0 5px;
+    color: #94a3b8;
+    animation: fadeIn 0.5s ease; /* 나타날 때 부드럽게 */
+}
+
+/* 날씨 아이콘 */
+#weatherIcon {
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
+    object-fit: contain;
+    animation: fadeIn 0.5s ease; /* 나타날 때 부드럽게 */
+}
+/* 비 알림 메시지 스타일 */
+#weather-alert {
+    display: none; /* 기본적으로는 숨겨둠 */
+    background-color: #eff6ff; /* 연한 파란색 배경 */
+    color: #1e40af; /* 차분한 네이비색 글씨 */
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 5px;
+    animation: fadeIn 0.5s ease; /* 나타날 때 부드럽게 */
+}
+/* 옷차림 가이드 스타일 */
+#clothing-guide {
+    background-color: #f0fdf4; /* 연한 초록빛 바탕 */
+    color: #166534; /* 초록색 글씨 */
+    border: 1px solid #dcfce7;
+    line-height: 1.4;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

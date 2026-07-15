@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날씨앱</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/dc49441f6a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="weather-container">
+    <div class="weather-inner">
+        <div class="searchBar">
+            <input type="text" id="cityName" placeholder="영문으로 도시이름을 입력해주세요">
+            <button onclick="search()">검색</button>
+        </div>
+
+        <div id="area"></div>
+
+        <div id="description"></div>
+
+        <div><img id="weatherIcon" alt="현재 날씨 아이콘"></div>
+
+        <div id="weather-alert"></div>
+
+        <div id="temp"></div>
+
+        <div id="feels_like"></div>
+
+        <div id="temp_min"></div>
+        <div id="temp_max"></div>
+
+        <div id="clothing-guide"></div>
+    </div>
+</div>
+</body>
+<script src="jjeya.js"></script>
+</html>

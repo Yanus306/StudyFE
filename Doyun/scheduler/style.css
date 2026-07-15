@@ -1,0 +1,98 @@
+/* 💡 달력과 리스트를 가로로 나란히 배치하기 위한 부모 상자 */
+.main-container {
+    display: flex;
+    gap: 30px;          /* 달력과 리스트 사이의 간격 */
+    margin: 40px 0 60px 0;
+    align-items: flex-start;
+}
+
+/* 달력 전체 상자 스타일 (margin 수정) */
+.calendar-box {
+    width: 750px;
+    background: #ffffff;
+    padding: 40px 50px 100px 50px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin: 0; /* 💡 부모 상자가 마진을 가져가므로 0으로 변경 */
+    font-family: sans-serif;
+}
+
+/* 💡 오른쪽 일정 바로보기 리스트 상자 스타일 */
+.list-box {
+    width: 350px;
+    background: #ffffff;
+    padding: 40px 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: sans-serif;
+}
+
+.list-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #222222;
+    padding-bottom: 10px;
+}
+
+/* 리스트 안에 들어갈 개별 일정 아이템 */
+.list-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.list-item-date {
+    font-size: 0.8rem;
+    color: #888888;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.list-item-text {
+    color: #333333;
+}
+
+/* --- 기존 스타일 유지 --- */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    row-gap: 80px;
+}
+.day-label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #555555;
+    padding-bottom: 5px;
+    margin-bottom: -65px;
+    z-index: 10;
+}
+.day-label.sun { color: #d9534f; }
+.day-label.sat { color: #0275d8; }
+
+.date-number {
+    font-size: 1rem;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 50px;
+}
+.schedule-text {
+    display: block;
+    font-size: 0.75rem;
+    color: #0ca678;
+    background-color: #e3faf2;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-top: 4px;
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}

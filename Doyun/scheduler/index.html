@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Modern Scheduler & Todo (Saved)</title>
+    <style>
+        /* ==========================================
+           전체 레이아웃 및 모던 테마 디자인
+           ========================================== */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            color: #333333;
+        }
+
+        #title {
+            margin: 0 0 5px 0;
+            font-size: 42px;
+            font-weight: 800;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+        #title2 {
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #868e96;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        #nowdate {
+            margin: 0 0 30px 0;
+            font-size: 20px;
+            text-align: center;
+            color: #495057;
+            font-weight: 500;
+        }
+
+        .main-input-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffff;
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            border: 1px solid #e9ecef;
+        }
+
+        .main-input-container input[type="date"] {
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            padding: 8px 12px;
+            outline: none;
+            font-family: inherit;
+            color: #495057;
+        }
+
+        .main-input-container input[type="text"] {
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            padding: 8px 16px;
+            width: 300px;
+            outline: none;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+        .main-input-container input[type="text"]:focus {
+            border-color: #222222;
+        }
+
+        .main-input-container input[type="button"] {
+            background-color: #222222;
+            color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .main-input-container input[type="button"]:hover {
+            background-color: #444444;
+        }
+
+        .main-container {
+            display: flex;
+            gap: 35px;
+            align-items: flex-start;
+            justify-content: center;
+            max-width: 1150px;
+            width: 100%;
+        }
+
+        .calendar-box {
+            width: 750px;
+            background: #ffffff;
+            padding: 35px 40px 50px 40px;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            box-sizing: border-box;
+        }
+
+        #calendar-month {
+            text-align: center;
+            font-size: 26px;
+            font-weight: 700;
+            margin: 0 0 25px 0;
+            color: #212529;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            row-gap: 20px;
+        }
+
+        .day-label {
+            font-weight: 700;
+            font-size: 14px;
+            color: #495057;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f1f3f5;
+            margin-bottom: 10px;
+        }
+        .day-label.sun { color: #fa5252; }
+        .day-label.sat { color: #228be6; }
+
+        .empty-cell {
+            min-height: 95px;
+            padding: 6px 4px;
+        }
+
+        .date-number {
+            font-size: 14px;
+            font-weight: 500;
+            color: #343a40;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 95px;
+            padding: 6px 4px;
+            border-radius: 8px;
+        }
+        .day-num {
+            margin-bottom: 6px;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+        }
+
+        .schedule-text {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #0ca678;
+            background-color: #e3faf2;
+            border-radius: 4px;
+            padding: 3px 6px;
+            margin-top: 4px;
+            width: 90%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+        }
+
+        .right-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 360px;
+        }
+
+        .list-box {
+            background: #ffffff;
+            padding: 30px 25px;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            box-sizing: border-box;
+        }
+
+        .list-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #212529;
+            padding-bottom: 8px;
+            color: #212529;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .list-count {
+            font-size: 16px;
+            color: #868e96;
+            font-weight: 600;
+        }
+
+        /* 💡 [신설] 일정 목록 컨테이너 스크롤 스타일 제한 */
+        #scheduleTodoList {
+            max-height: 410px;      /* 아이템 약 8개 높이만큼 제한 */
+            overflow-y: auto;       /* 8개 넘어가면 내부 스크롤바 자동 생성 */
+            padding-right: 4px;     /* 스크롤바 공간 확보 */
+        }
+
+        /* 💡 스크롤바 디자인을 웹앱 느낌으로 가볍고 모던하게 수정 */
+        #scheduleTodoList::-webkit-scrollbar {
+            width: 6px;
+        }
+        #scheduleTodoList::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        #scheduleTodoList::-webkit-scrollbar-thumb {
+            background: #dee2e6;
+            border-radius: 4px;
+        }
+        #scheduleTodoList::-webkit-scrollbar-thumb:hover {
+            background: #adb5bd;
+        }
+
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 8px;
+            border-bottom: 1px solid #f1f3f5;
+            font-size: 14px;
+            line-height: 1.5;
+            transition: background-color 0.2s ease;
+            border-radius: 6px;
+        }
+
+        .list-item-content {
+            flex-grow: 1;
+            padding-right: 10px;
+        }
+
+        .list-item-date {
+            font-size: 11px;
+            color: #868e96;
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        .list-item-text {
+            color: #212529;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        .list-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .color-chip {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.08);
+            transition: transform 0.1s;
+        }
+        .color-chip:hover { transform: scale(1.3); }
+
+        .chip-gray  { background-color: #e9ecef; }
+        .chip-red   { background-color: #ffdee2; }
+        .chip-blue  { background-color: #d0ebff; }
+        .chip-green { background-color: #e3faf2; }
+
+        .d-day-badge {
+            display: inline-block;
+            background-color: #228be6;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 1px 6px;
+            border-radius: 10px;
+            margin-left: 6px;
+        }
+        .d-day-badge.today { background-color: #fa5252; }
+        .d-day-badge.past { background-color: #868e96; }
+
+        .delete-btn {
+            background-color: #fff5f5;
+            color: #fa5252;
+            border: 1px solid #ffe3e3;
+            border-radius: 6px;
+            padding: 4px 8px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .delete-btn:hover {
+            background-color: #fa5252;
+            color: #ffffff;
+            border-color: #fa5252;
+        }
+
+        .todo-input-box {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+        .todo-input-box input[type="text"] {
+            flex-grow: 1;
+            padding: 8px 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 13px;
+            outline: none;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .todo-input-box input[type="text"]:focus {
+            border-color: #212529;
+        }
+        .todo-input-box input[type="button"] {
+            background-color: #212529;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+        .todo-input-box input[type="button"]:hover {
+            background-color: #495057;
+        }
+    </style>
+</head>
+<body>
+
+<p id='title'>몇월 스케줄러</p>
+<p id='title2'>영문 월</p>
+<p id="nowdate">현재날짜</p>
+
+<div class="main-input-container">
+    <input type="date" id="mych-box">
+    <input type="text" id="myin-put" placeholder="새로운 일정을 입력하세요!">
+    <input onclick="textact()" type="button" id="mybtn" value="확인">
+</div>
+
+<div class="main-container">
+
+    <div class="calendar-box">
+        <p id="calendar-month">월</p>
+        <div class="calendar-grid">
+            <div class="day-label sun">일</div>
+            <div class="day-label">월</div>
+            <div class="day-label">화</div>
+            <div class="day-label">수</div>
+            <div class="day-label">목</div>
+            <div class="day-label">금</div>
+            <div class="day-label sat">토</div>
+            <div id="calendarDates" style="display: contents;"></div>
+        </div>
+    </div>
+
+    <div class="right-sidebar">
+
+        <div class="list-box">
+            <p class="list-title">일정 바로보기 <span id="schedule-count" class="list-count">(0)</span></p>
+            <div id="scheduleTodoList"></div>
+        </div>
+
+        <div class="list-box">
+            <p class="list-title">Note <span id="todo-count" class="list-count">(0)</span></p>
+
+            <div class="todo-input-box">
+                <input type="text" id="todo-input" placeholder="노트 등록">
+                <input type="button" onclick="addTodoItem()" value="등록">
+            </div>
+
+            <div id="todoListContainer"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    // --- 변수 및 컨테이너 바인딩 ---
+    const input = document.getElementById('myin-put');
+    const dateBox = document.getElementById('mych-box');
+    const todoListContainer = document.getElementById('scheduleTodoList');
+    const datesContainer = document.getElementById('calendarDates');
+
+    const todoInput = document.getElementById('todo-input');
+    const actualTodoList = document.getElementById('todoListContainer');
+
+    const scheduleCountEl = document.getElementById('schedule-count');
+    const todoCountEl = document.getElementById('todo-count');
+
+    // 로컬 스토리지 배열 데이터 선언
+    let savedSchedules = JSON.parse(localStorage.getItem('schedules')) || [];
+    let savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
+
+    let today = new Date();
+    let year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let month2 = today.getMonth();
+    let date = today.getDate();
+    let en_montharry = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let en_month = en_montharry[month2];
+
+    document.getElementById('title').innerHTML = `${month}월 스케줄러`;
+    document.getElementById('nowdate').innerHTML = `현재날짜 : ${year}년 ${month}월 ${date}일`;
+    document.getElementById('title2').innerHTML = en_month;
+    document.getElementById("calendar-month").innerHTML = `${month}월`;
+
+    const mm = month < 10 ? '0' + month : month;
+    const dd = date < 10 ? '0' + date : date;
+    dateBox.value = `${year}-${mm}-${dd}`;
+
+    // --- 달력 구조 동적 빌딩 함수 ---
+    function renderCalendar(viewYear, viewMonth) {
+        datesContainer.innerHTML = "";
+
+        const startDay = new Date(viewYear, viewMonth - 1, 1).getDay();
+        const lastDate = new Date(viewYear, viewMonth, 0).getDate();
+
+        for (let i = 0; i < startDay; i++) {
+            const emptyCell = document.createElement('div');
+            emptyCell.classList.add('empty-cell');
+            datesContainer.appendChild(emptyCell);
+        }
+
+        for (let i = 1; i <= lastDate; i++) {
+            const dateCell = document.createElement('div');
+            dateCell.classList.add('date-number');
+            dateCell.innerHTML = `<span class="day-num" data-day="${i}">${i}</span>`;
+            datesContainer.appendChild(dateCell);
+        }
+    }
+
+    // D-Day 계산기
+    function calculateDDay(targetDateStr) {
+        const now = new Date();
+        const todayDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const parts = targetDateStr.split('-');
+        const targetDate = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+        const diffTime = targetDate.getTime() - todayDate.getTime();
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        if (diffDays === 0) { return { text: "D-Day", className: "today" }; }
+        else if (diffDays > 0) { return { text: `D-${diffDays}`, className: "" }; }
+        else { return { text: `D+${Math.abs(diffDays)}`, className: "past" }; }
+    }
+
+    function updateCounters() {
+        scheduleCountEl.innerText = `(${savedSchedules.length})`;
+        todoCountEl.innerText = `(${savedTodos.length})`;
+    }
+
+    // 스케줄 배열과 우측 리스트 뷰를 통합 렌더링하는 핵심 함수
+    function renderSchedules() {
+        document.querySelectorAll('.schedule-text').forEach(el => el.remove());
+        todoListContainer.innerHTML = "";
+
+        // 날짜 오름차순 정렬
+        savedSchedules.sort((a, b) => a.date.localeCompare(b.date));
+
+        savedSchedules.forEach(item => {
+            const itemYear = parseInt(item.date.split('-')[0], 10);
+            const itemMonth = parseInt(item.date.split('-')[1], 10);
+            const chosenDay = parseInt(item.date.split('-')[2], 10);
+
+            if (itemYear === year && itemMonth === month) {
+                const targetDaySpan = document.querySelector(`.day-num[data-day="${chosenDay}"]`);
+                if (targetDaySpan) {
+                    const cell = targetDaySpan.parentElement;
+                    const scheduleSpan = document.createElement('span');
+                    scheduleSpan.classList.add('schedule-text');
+                    scheduleSpan.setAttribute('data-id', item.id);
+                    scheduleSpan.innerText = item.text;
+
+                    if(item.bgColor) scheduleSpan.style.backgroundColor = item.bgColor;
+                    if(item.textColor) scheduleSpan.style.color = item.textColor;
+
+                    cell.appendChild(scheduleSpan);
+                }
+            }
+
+            const dateParts = item.date.split('-');
+            const displayDate = `${parseInt(dateParts[1], 10)}월 ${parseInt(dateParts[2], 10)}일`;
+            const dDayInfo = calculateDDay(item.date);
+
+            const listItem = document.createElement('div');
+            listItem.classList.add('list-item');
+            if(item.bgColor) listItem.style.backgroundColor = item.bgColor;
+
+            listItem.innerHTML = `
+                <div class="list-item-content">
+                    <div class="list-item-date">
+                        ${displayDate}
+                        <span class="d-day-badge ${dDayInfo.className}">${dDayInfo.text}</span>
+                    </div>
+                    <div class="list-item-text">${item.text}</div>
+                </div>
+                <div class="list-item-actions">
+                    <div class="color-chip chip-gray" data-color="#e9ecef" data-text="#495057"></div>
+                    <div class="color-chip chip-red" data-color="#ffdee2" data-text="#e53e3e"></div>
+                    <div class="color-chip chip-blue" data-color="#d0ebff" data-text="#1c7ed6"></div>
+                    <div class="color-chip chip-green" data-color="#e3faf2" data-text="#0ca678"></div>
+                    <button class="delete-btn">삭제</button>
+                </div>
+            `;
+
+            const colorChips = listItem.querySelectorAll('.color-chip');
+            colorChips.forEach(chip => {
+                chip.addEventListener('click', function() {
+                    const bg = this.getAttribute('data-color');
+                    const text = this.getAttribute('data-text');
+
+                    listItem.style.backgroundColor = bg;
+
+                    const calTarget = document.querySelector(`.schedule-text[data-id="${item.id}"]`);
+                    if (calTarget) {
+                        calTarget.style.backgroundColor = bg;
+                        calTarget.style.color = text;
+                    }
+
+                    savedSchedules = savedSchedules.map(s => s.id === item.id ? { ...s, bgColor: bg, textColor: text } : s);
+                    localStorage.setItem('schedules', JSON.stringify(savedSchedules));
+                });
+            });
+
+            const delBtn = listItem.querySelector('.delete-btn');
+            delBtn.addEventListener('click', function() {
+                if (confirm("정말 이 일정을 삭제하겠습니까?")) {
+                    savedSchedules = savedSchedules.filter(s => s.id !== item.id);
+                    localStorage.setItem('schedules', JSON.stringify(savedSchedules));
+
+                    renderSchedules();
+                    updateCounters();
+                }
+            });
+
+            todoListContainer.appendChild(listItem);
+        });
+    }
+
+    // 독립 투두 노드 렌더러
+    function createTodoDOM(item) {
+        const todoItem = document.createElement('div');
+        todoItem.classList.add('list-item');
+        todoItem.innerHTML = `
+            <div class="list-item-content">
+                <div class="list-item-text">${item.text}</div>
+            </div>
+            <button class="delete-btn todo-del-btn">삭제</button>
+        `;
+
+        const todoDelBtn = todoItem.querySelector('.todo-del-btn');
+        todoDelBtn.addEventListener('click', function() {
+            if (confirm("이 노트를 삭제하겠습니까?")) {
+                todoItem.remove();
+                savedTodos = savedTodos.filter(t => t.id !== item.id);
+                localStorage.setItem('todos', JSON.stringify(savedTodos));
+
+                updateCounters();
+            }
+        });
+
+        actualTodoList.insertBefore(todoItem, actualTodoList.firstChild);
+    }
+
+    // --- 🗓️ 1. 메인 스케줄러 등록 액션 ---
+    function textact() {
+        const value = input.value.trim();
+        const selectedDate = dateBox.value;
+
+        if (value !== "") {
+            if(!selectedDate) { alert("날짜를 선택해주세요"); return; }
+
+            const newSchedule = {
+                id: `sched-${Date.now()}`,
+                date: selectedDate,
+                text: value,
+                bgColor: '',
+                textColor: ''
+            };
+
+            savedSchedules.push(newSchedule);
+            localStorage.setItem('schedules', JSON.stringify(savedSchedules));
+
+            renderSchedules();
+            updateCounters();
+
+            input.value = "";
+            input.focus();
+        } else {
+            alert("내용을 입력하세요");
+            input.focus();
+        }
+    }
+
+    input.addEventListener('keydown', function(e){ if (e.key === 'Enter') textact(); });
+
+    // --- 📝 2. 독립 투두리스트 등록 액션 ---
+    function addTodoItem() {
+        const todoValue = todoInput.value.trim();
+
+        if (todoValue !== "") {
+            const newTodo = {
+                id: `todo-${Date.now()}`,
+                text: todoValue
+            };
+
+            savedTodos.push(newTodo);
+            localStorage.setItem('todos', JSON.stringify(savedTodos));
+
+            createTodoDOM(newTodo);
+            updateCounters();
+
+            todoInput.value = "";
+            todoInput.focus();
+        } else {
+            alert("할 일을 입력하세요!");
+            todoInput.focus();
+        }
+    }
+
+    todoInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') addTodoItem(); });
+
+    // ==========================================
+    // 초기 구동 시 데이터 로드 및 카운터 초기화
+    // ==========================================
+    renderCalendar(year, month);
+    renderSchedules();
+    savedTodos.forEach(item => createTodoDOM(item));
+    updateCounters();
+</script>
+</body>
+</html>
