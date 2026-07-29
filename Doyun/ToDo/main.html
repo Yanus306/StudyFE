@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="menu-links">
+    <a href="https://yanus.bond/login">야누스</a>
+    <a href="https://app.slack.com/client/T0A4H0NR4F6/C0A3XV4N0KH">슬랙</a>
+    <a href="https://www.notion.so/yANUs-22a0c5f9296980bd888ced2dba2b75db">노션</a>
+</div>
+
+<h1 id="hi">인사말</h1>
+
+<h3>할 일 추가하기
+    <div>
+        <input type="text" id="inputtodo" placeholder="할일을 입력하세요!!!">
+        <button id="btn">확인</button>
+    </div>
+</h3>
+
+<div class="todo-dashboard">
+    <b1 id="todo">오늘 할일!!</b1>
+    <b2>
+        할 일 갯수 : <span id="todocount">0</span>개
+        &nbsp;&nbsp;&nbsp;
+        완료 한 할 일 : <span id="donecount">0</span>개
+    </b2>
+    <button id="alldel">할일 전체삭제</button>
+</div>
+
+<ul id="todolist"></ul>
+
+<script src="js.js"></script>
+</body>
+</html>

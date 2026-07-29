@@ -1,0 +1,251 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    letter-spacing: -0.3px;
+}
+
+body {
+    /* 은은하고 생기 있는 그라데이션 배경 */
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 1. 상단 메뉴 링크 (아기자기한 캡슐 버튼 스타일) */
+.menu-links {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #4a5568;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(4px); /* 트렌디한 글래스모피즘 효과 */
+    transition: all 0.25s ease;
+}
+
+a:hover {
+    color: #ffffff;
+    background-color: #6c5ce7; /* 마우스 올리면 산뜻한 보라색으로 변신 */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(108, 92, 231, 0.3);
+}
+
+/* 2. 랜덤 인사말 타이틀 (화사한 그라데이션 텍스트) */
+#hi {
+    font-size: 32px;
+    font-weight: 900;
+    /* 글자에 그라데이션 넣는 세련된 기법 */
+    background: linear-gradient(to right, #6c5ce7, #a55eea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 20px 0 35px 0;
+    text-align: center;
+    text-shadow: 2px 4px 10px rgba(108, 92, 231, 0.1);
+}
+
+/* 3. 할 일 입력 섹션 */
+h3 {
+    width: 100%;
+    max-width: 480px;
+    font-size: 15px;
+    color: #4a5568;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+h3 div {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+#inputtodo {
+    flex: 1;
+    padding: 14px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 15px;
+    background-color: #ffffff;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+#inputtodo:focus {
+    border-color: #a55eea;
+    box-shadow: 0 0 0 4px rgba(165, 94, 234, 0.15); /* 보라색 네온 빛 포커스 */
+}
+
+#btn {
+    padding: 0 24px;
+    background: linear-gradient(135deg, #6c5ce7 0%, #a55eea 100%); /* 화사한 그라데이션 버튼 */
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+    transition: all 0.25s ease;
+}
+
+#btn:hover {
+    transform: scale(1.03); /* 살짝 커지는 효과 */
+    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+}
+
+/* 4. 대시보드 및 전체삭제 */
+.todo-dashboard {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+#todo {
+    font-size: 20px;
+    font-weight: 800;
+    color: #2d3748;
+}
+
+b2 {
+    font-size: 14px;
+    color: #718096;
+    display: flex;
+    gap: 15px;
+}
+
+/* 숫자 카운팅 색상 강조 */
+#todocount {
+    color: #ff7675; /* 할 일 개수는 산뜻한 다홍색 */
+    font-weight: 800;
+}
+
+#donecount {
+    color: #20bf6b; /* 완료 개수는 청량한 초록색 */
+    font-weight: 800;
+}
+
+#alldel {
+    width: 100%;
+    padding: 12px;
+    background-color: #fff5f5; /* 경고 느낌의 아주 연한 핑크빛 배경 */
+    border: 2px dashed #ff8787; /* 예쁜 땡땡이 점선 테두리 */
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fa8231;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: all 0.25s ease;
+}
+
+#alldel:hover {
+    background: linear-gradient(135deg, #ff7675 0%, #ff4757 100%); /* 마우스 대면 화끈하게 반전 */
+    color: #ffffff;
+    border-style: solid;
+    border-color: transparent;
+    box-shadow: 0 6px 18px rgba(255, 118, 117, 0.3);
+}
+
+/* 5. 할 일 리스트 (알록달록 파스텔 카드) */
+#todolist {
+    width: 100%;
+    max-width: 480px;
+    list-style: none;
+}
+
+#todolist li {
+    background-color: #ffffff;
+    padding: 16px 20px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    /* 왼쪽 테두리에 민트색 포인트를 주어 세련미 UP */
+    border-left: 5px solid #05c46b;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    font-size: 16px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 통통 튀며 나타나는 애니메이션 */
+    transition: all 0.25s ease;
+}
+
+#todolist li:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+#todolist li span {
+    flex: 1;
+    color: #2d3748;
+    transition: all 0.25s ease;
+}
+
+/* 6. X 삭제 버튼 (동글동글 귀여운 스타일) */
+#todolist li button {
+    background-color: #ffeaa7; /* 연노랑 배경 */
+    border: none;
+    color: #d63031; /* 진빨강 글자 */
+    font-size: 11px;
+    font-weight: 900;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+#todolist li button:hover {
+    background-color: #ff7675;
+    color: #ffffff;
+    transform: rotate(90deg); /* 마우스 올리면 회전하는 센스 효과 */
+}
+
+/* 7. 체크박스 (청량한 스카이블루/민트 틴트) */
+#todolist li input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #05c46b; /* 체크하면 리스트 왼쪽 줄과 같은 초록색으로 동기화 */
+}
+
+/* 통통 튀는 등장 애니메이션 정의 */
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
