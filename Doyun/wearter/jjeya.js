@@ -1,6 +1,5 @@
 // OpenWeatherMap API에 필요한 정보
-const API_KEY = '4e75c2d4ab5ec7883740b215fb01afec';
-const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
+// 웨더에이피아이 키 부분 보안때메 지움
 
 const description = document.getElementById('description');
 const img = document.getElementById('weatherIcon');
