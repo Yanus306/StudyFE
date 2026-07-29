@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_bg_clr"
+    tools:context=".MoInfo">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/iv_pic"
+        android:layout_width="127dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="40dp"
+        app:cardCornerRadius="63dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/frog" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_start_line"
+        android:text="아이디"
+        android:textColor="#797979"
+        android:paddingStart="16dp"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_pic" />
+
+    <EditText
+        android:id="@+id/et_id"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:background="@drawable/bg_edit"
+        android:paddingStart="16dp"
+        android:text="testtest"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_id"
+        app:layout_constraintStart_toStartOf="@id/tv_id"
+        app:layout_constraintTop_toBottomOf="@id/tv_id" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_start_line"
+        android:text="이름"
+        android:textColor="#797979"
+        android:paddingStart="16dp"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_id"
+        app:layout_constraintStart_toStartOf="@id/tv_id"
+        app:layout_constraintTop_toBottomOf="@id/et_id" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:background="@drawable/bg_edit"
+        android:paddingStart="16dp"
+        android:text="홍길동"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_id"
+        app:layout_constraintStart_toStartOf="@id/tv_id"
+        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_start_line"
+        android:text="전화번호"
+        android:textColor="#797979"
+        android:paddingStart="16dp"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_id"
+        app:layout_constraintStart_toStartOf="@id/tv_id"
+        app:layout_constraintTop_toBottomOf="@id/et_name" />
+
+    <EditText
+        android:id="@+id/et_call"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:background="@drawable/bg_edit"
+        android:paddingStart="16dp"
+        android:text="010-2926-5804"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_id"
+        app:layout_constraintStart_toStartOf="@id/tv_id"
+        app:layout_constraintTop_toBottomOf="@id/tv_call" />
+
+    <TextView
+        android:id="@+id/tv_adre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_start_line"
+        android:text="주소"
+        android:textColor="#797979"
+        android:paddingStart="16dp"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_id"
+        app:layout_constraintStart_toStartOf="@id/tv_id"
+        app:layout_constraintTop_toBottomOf="@id/et_call" />
+
+    <EditText
+        android:id="@+id/et_adre"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:background="@drawable/bg_edit"
+        android:paddingStart="16dp"
+        android:text="경상북도 안동시 송천 2길 1-4"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_id"
+        app:layout_constraintStart_toStartOf="@id/tv_id"
+        app:layout_constraintTop_toBottomOf="@id/tv_adre" />
+
+    <TextView
+        android:id="@+id/tv_new_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_start_line"
+        android:text="새 비밀번호"
+        android:paddingStart="16dp"
+        android:textSize="11sp"
+        android:textColor="#797979"
+        app:layout_constraintEnd_toEndOf="@id/tv_id"
+        app:layout_constraintStart_toStartOf="@id/tv_id"
+        app:layout_constraintTop_toBottomOf="@id/et_adre" />
+
+    <EditText
+        android:id="@+id/et_new_pass"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:background="@drawable/bg_edit"
+        android:gravity="center"
+        android:hint="새 비밀번호 발급받기"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_id"
+        app:layout_constraintStart_toStartOf="@id/tv_id"
+        app:layout_constraintTop_toBottomOf="@id/tv_new_pass" />
+
+    <TextView
+        android:id="@+id/tv_save"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bg_yellow_box"
+        android:gravity="center"
+        android:text="저장하기"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@id/tv_id"
+        app:layout_constraintStart_toStartOf="@id/tv_id"
+        app:layout_constraintTop_toBottomOf="@id/et_new_pass" />
+
+    <TextView
+        android:id="@+id/tv_leave"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_pink_box"
+        android:gravity="center"
+        android:text="회원 탈퇴"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@id/tv_id"
+        app:layout_constraintStart_toStartOf="@id/tv_id"
+        app:layout_constraintTop_toBottomOf="@id/tv_save" />
+
+    <EditText
+        android:id="@+id/et_btn"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:paddingTop="30dp"
+        android:text="        병원            일기                홈              커뮤            마이"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginBottom="25dp"
+        android:paddingEnd="320dp"
+        android:src="@drawable/ic_hosp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginBottom="25dp"
+        android:paddingStart="297dp"
+        android:src="@drawable/ic_person"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginBottom="25dp"
+        android:paddingEnd="170dp"
+        android:src="@drawable/ic_diary"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginBottom="25dp"
+        android:paddingEnd="3dp"
+        android:src="@drawable/ic_home"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginBottom="25dp"
+        android:paddingStart="150dp"
+        android:src="@drawable/ic_comm"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

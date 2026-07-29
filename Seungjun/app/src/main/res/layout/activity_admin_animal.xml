@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_bg_clr"
+    tools:context=".AdminAnimal">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_first_an"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_cor_rad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_first_an"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="20dp"
+            android:layout_marginStart="16dp"
+            app:cardCornerRadius="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/mons" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_an_ifo1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="27dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cv_first_an"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/an_name1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/bg_name_box"
+                android:gravity="center"
+                android:text="우츠동"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_gender1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ic_gender_man"
+                app:layout_constraintBottom_toBottomOf="@id/an_name1"
+                app:layout_constraintStart_toStartOf="@id/an_name1"
+                app:layout_constraintTop_toTopOf="@id/an_name1" />
+
+            <TextView
+                android:id="@+id/an_age1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_pfl_box"
+                android:gravity="center"
+                android:text="5살"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/an_kind1"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/an_name1" />
+
+            <TextView
+                android:id="@+id/an_kind1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_pfl_box"
+                android:gravity="center"
+                android:text="강아지"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@id/an_age1"
+                app:layout_constraintTop_toBottomOf="@id/an_name1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_second_an"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_cor_rad"
+        app:layout_constraintEnd_toEndOf="@id/layout_first_an"
+        app:layout_constraintStart_toStartOf="@id/layout_first_an"
+        app:layout_constraintTop_toBottomOf="@id/layout_first_an">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_second_an"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="20dp"
+            android:layout_marginStart="16dp"
+            app:cardCornerRadius="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frog" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_an_ifo2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="27dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cv_second_an"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/an_name2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/bg_name_box"
+                android:gravity="center"
+                android:text="우"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_gender2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ic_gender_man"
+                app:layout_constraintBottom_toBottomOf="@id/an_name2"
+                app:layout_constraintStart_toStartOf="@id/an_name2"
+                app:layout_constraintTop_toTopOf="@id/an_name2" />
+
+            <TextView
+                android:id="@+id/an_age2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_pfl_box"
+                android:gravity="center"
+                android:text="2살"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/an_kind2"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/an_name2" />
+
+            <TextView
+                android:id="@+id/an_kind2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_pfl_box"
+                android:gravity="center"
+                android:text="고양이"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@id/an_age2"
+                app:layout_constraintTop_toBottomOf="@id/an_name2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_third_an"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_cor_rad"
+        app:layout_constraintEnd_toEndOf="@id/layout_first_an"
+        app:layout_constraintStart_toStartOf="@id/layout_first_an"
+        app:layout_constraintTop_toBottomOf="@id/layout_second_an">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_third_an"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="20dp"
+            android:layout_marginStart="16dp"
+            app:cardCornerRadius="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/mons" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_an_ifo3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="27dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cv_third_an"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/an_name3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/bg_name_box"
+                android:gravity="center"
+                android:text="우츠동"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_gender3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ic_gender_man"
+                app:layout_constraintBottom_toBottomOf="@id/an_name3"
+                app:layout_constraintStart_toStartOf="@id/an_name3"
+                app:layout_constraintTop_toTopOf="@id/an_name3" />
+
+            <TextView
+                android:id="@+id/an_age3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_pfl_box"
+                android:gravity="center"
+                android:text="5살"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/an_kind3"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/an_name3" />
+
+            <TextView
+                android:id="@+id/an_kind3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_pfl_box"
+                android:gravity="center"
+                android:text="강아지"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@id/an_age3"
+                app:layout_constraintTop_toBottomOf="@id/an_name3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_add_an"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
+        android:background="@drawable/bg_yellow_box"
+        android:gravity="center"
+        android:paddingVertical="10dp"
+        android:text="추가하기"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@id/layout_first_an"
+        app:layout_constraintStart_toStartOf="@id/layout_first_an"
+        app:layout_constraintTop_toBottomOf="@id/layout_third_an" />
+
+    <TextView
+        android:id="@+id/tv_admin_save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_yellow_box"
+        android:gravity="center"
+        android:paddingVertical="10dp"
+        android:text="저장하기"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@id/layout_first_an"
+        app:layout_constraintStart_toStartOf="@id/layout_first_an"
+        app:layout_constraintTop_toBottomOf="@id/tv_add_an" />
+
+    <TextView
+        android:id="@+id/pfl_change"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_edit"
+        android:gravity="center"
+        android:paddingVertical="10dp"
+        android:text="프로필 교체"
+        android:textColor="#797979"
+        app:layout_constraintEnd_toEndOf="@id/layout_first_an"
+        app:layout_constraintStart_toStartOf="@id/layout_first_an"
+        app:layout_constraintTop_toBottomOf="@id/tv_admin_save" />
+
+    <TextView
+        android:id="@+id/tv_bot_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:paddingTop="30dp"
+        android:text="        병원            일기                홈              커뮤            마이"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginBottom="25dp"
+        android:paddingEnd="320dp"
+        android:src="@drawable/ic_hosp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginBottom="25dp"
+        android:paddingStart="297dp"
+        android:src="@drawable/ic_person"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginBottom="25dp"
+        android:paddingEnd="170dp"
+        android:src="@drawable/ic_diary"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginBottom="25dp"
+        android:paddingEnd="3dp"
+        android:src="@drawable/ic_home"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginBottom="25dp"
+        android:paddingStart="150dp"
+        android:src="@drawable/ic_comm"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
