@@ -1,5 +1,6 @@
 // src/main/theme.js
 export const themes = {
+  // ---------------- [기존 테마] ----------------
   classic: {
     id: 'classic',
     name: '클래식 우드',
@@ -34,6 +35,44 @@ export const themes = {
     scoreboardBg: 'bg-emerald-950/60 border-emerald-800 text-emerald-400',
     boardBg: 'bg-emerald-950 border-emerald-800',
     holeBg: 'bg-emerald-900 border-emerald-700',
+    holeInner: 'bg-black',
+  },
+
+  // ---------------- [새로 추가된 테마] ----------------
+  sunset: {
+    id: 'sunset',
+    name: '선셋 오렌지',
+    bg: 'bg-stone-950',
+    scoreboardBg: 'bg-orange-950/70 border-orange-800',
+    boardBg: 'bg-gradient-to-br from-orange-600 to-rose-700 border-orange-900',
+    holeBg: 'bg-orange-900 border-orange-950',
+    holeInner: 'bg-stone-950',
+  },
+  ocean: {
+    id: 'ocean',
+    name: '딥 오션',
+    bg: 'bg-blue-950',
+    scoreboardBg: 'bg-blue-900/50 border-blue-700',
+    boardBg: 'bg-blue-800 border-blue-950',
+    holeBg: 'bg-blue-900 border-blue-950',
+    holeInner: 'bg-blue-950',
+  },
+  lavender: {
+    id: 'lavender',
+    name: '몽환 라벤더',
+    bg: 'bg-purple-950',
+    scoreboardBg: 'bg-purple-900/60 border-purple-700',
+    boardBg: 'bg-purple-800 border-purple-950',
+    holeBg: 'bg-purple-900 border-purple-950',
+    holeInner: 'bg-purple-950',
+  },
+  midnight: {
+    id: 'midnight',
+    name: '미드나잇 골드',
+    bg: 'bg-neutral-950',
+    scoreboardBg: 'bg-neutral-900 border-amber-500/40',
+    boardBg: 'bg-neutral-900 border-amber-600/60',
+    holeBg: 'bg-neutral-950 border-amber-500/30',
     holeInner: 'bg-black',
   }
 };
