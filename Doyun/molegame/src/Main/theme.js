@@ -1,0 +1,39 @@
+// src/main/theme.js
+export const themes = {
+  classic: {
+    id: 'classic',
+    name: '클래식 우드',
+    bg: 'bg-slate-900',
+    scoreboardBg: 'bg-slate-800 border-slate-700',
+    boardBg: 'bg-amber-800 border-amber-950',
+    holeBg: 'bg-amber-900 border-amber-950',
+    holeInner: 'bg-amber-950',
+  },
+  neon: {
+    id: 'neon',
+    name: '사이버 네온',
+    bg: 'bg-zinc-950',
+    scoreboardBg: 'bg-zinc-900 border-cyan-500/50 shadow-cyan-500/20',
+    boardBg: 'bg-zinc-900 border-cyan-500 shadow-cyan-500/30',
+    holeBg: 'bg-black border-cyan-400/50',
+    holeInner: 'bg-zinc-950',
+  },
+  candy: {
+    id: 'candy',
+    name: '스위트 캔디',
+    bg: 'bg-pink-950',
+    scoreboardBg: 'bg-pink-900/80 border-pink-700',
+    boardBg: 'bg-pink-700 border-pink-900',
+    holeBg: 'bg-pink-800 border-pink-950',
+    holeInner: 'bg-pink-950',
+  },
+  matrix: {
+    id: 'matrix',
+    name: '매트릭스',
+    bg: 'bg-black',
+    scoreboardBg: 'bg-emerald-950/60 border-emerald-800 text-emerald-400',
+    boardBg: 'bg-emerald-950 border-emerald-800',
+    holeBg: 'bg-emerald-900 border-emerald-700',
+    holeInner: 'bg-black',
+  }
+};
