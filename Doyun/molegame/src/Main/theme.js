@@ -37,8 +37,6 @@ export const themes = {
     holeBg: 'bg-emerald-900 border-emerald-700',
     holeInner: 'bg-black',
   },
-
-  // ---------------- [새로 추가된 테마] ----------------
   sunset: {
     id: 'sunset',
     name: '선셋 오렌지',
