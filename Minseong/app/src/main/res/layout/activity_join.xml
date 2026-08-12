@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.ui.auth.JoinActivity">
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="71dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_id"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/bg_auth_box"
+        android:fontFamily="@font/pretendard_medium"
+        android:hint="아이디"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_logo" />
+
+    <EditText
+        android:id="@+id/et_pw"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_auth_box"
+        android:fontFamily="@font/pretendard_medium"
+        android:hint="비밀번호"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/et_id"
+        app:layout_constraintStart_toStartOf="@id/et_id"
+        app:layout_constraintTop_toBottomOf="@id/et_id" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_auth_box"
+        android:fontFamily="@font/pretendard_medium"
+        android:hint="이름"
+        android:paddingHorizontal="16sp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/et_id"
+        app:layout_constraintStart_toStartOf="@id/et_id"
+        app:layout_constraintTop_toBottomOf="@id/et_pw" />
+
+    <EditText
+        android:id="@+id/et_company"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_auth_box"
+        android:fontFamily="@font/pretendard_medium"
+        android:hint="소속"
+        android:paddingHorizontal="16sp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/et_id"
+        app:layout_constraintStart_toStartOf="@id/et_id"
+        app:layout_constraintTop_toBottomOf="@id/et_name" />
+
+    <EditText
+        android:id="@+id/et_position"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_auth_box"
+        android:fontFamily="@font/pretendard_medium"
+        android:hint="직책"
+        android:paddingHorizontal="16sp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/et_id"
+        app:layout_constraintStart_toStartOf="@id/et_id"
+        app:layout_constraintTop_toBottomOf="@id/et_company" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_join"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_auth_btn"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="회원가입"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/et_id"
+        app:layout_constraintStart_toStartOf="@id/et_id" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

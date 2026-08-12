@@ -43,6 +43,7 @@
         android:background="@drawable/bg_auth_box"
         android:fontFamily="@font/pretendard_medium"
         android:hint="비밀번호"
+        android:inputType="textPassword"
         android:paddingHorizontal="16sp"
         android:textColor="@color/black"
         android:textColorHint="@color/gray_150"

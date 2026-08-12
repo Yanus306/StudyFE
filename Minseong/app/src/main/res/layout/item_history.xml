@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_result">
+
+    <TextView
+        android:id="@+id/tv_history_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:text="2026.07.06"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_history_day"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_history_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="월요일"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_history_date"
+        app:layout_constraintTop_toBottomOf="@id/tv_history_date" />
+
+    <TextView
+        android:id="@+id/tv_history_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="전체 완료"
+        android:textColor="#4F46FF"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_history_message"
+        app:layout_constraintStart_toEndOf="@id/tv_history_date"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_history_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:text="모든 항목을 완료했어요"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_history_count"
+        app:layout_constraintStart_toStartOf="@id/tv_history_status"
+        app:layout_constraintTop_toBottomOf="@id/tv_history_status" />
+
+    <TextView
+        android:id="@+id/tv_history_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:text="6 / 6"
+        android:textColor="#4F46FF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
