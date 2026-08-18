@@ -1,10 +1,11 @@
-import { playMeowSound } from './Sound';
+import { playMeowSound } from './Sound'; // Sound.jsx에서 playMeowSound 임포트
 
 // 이미지 캐싱을 위한 객체
 const imageCache = {};
 
 export class Ball {
-  constructor(id, x, y, radius, speed, angle, color, imagePath) {
+  // 👇 여기에 petType을 매개변수 맨 끝에 반드시 추가해주셔야 합니다!
+  constructor(id, x, y, radius, speed, angle, color, imagePath, name = '이름 없음', heartsCount = 0, petType = 'cat') {
     this.id = id;
     this.x = x;
     this.y = y;
@@ -18,7 +19,10 @@ export class Ball {
     this.imageLoaded = false;
     this.isHovered = false; // 호버 상태 초기화
     this.isSelected = false; // 선택 상태 초기화
+    this.name = name; // 반려동물 이름 추가
+    this.heartsCount = heartsCount; // 0부터 시작하는 하트 받은 횟수 추가
     this.hearts = []; // 하트 뿅뿅 효과를 위한 파티클 배열
+    this.petType = petType; // 이제 에러가 나지 않습니다!
 
     // 이미지가 캐시에 없으면 새로 로드
     if (imagePath) {
@@ -33,6 +37,9 @@ export class Ball {
 
   // 하트 뿅뿅 효과 생성 메서드 (크기가 커질 때 호출)
   spawnHearts() {
+    // 하트를 받을 때 카운트 증가 처리 예시
+    this.heartsCount += 1;
+
     const heartCount = 6; // 한 번에 생성될 하트 개수
     for (let i = 0; i < heartCount; i++) {
       const angle = Math.random() * Math.PI * 2;
@@ -122,16 +129,6 @@ export class Ball {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.stroke();
-
-    // 공 번호 표시
-    ctx.fillStyle = '#ffffff';
-    ctx.strokeStyle = '#000000';
-    ctx.lineWidth = 3;
-    ctx.font = 'bold 14px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.strokeText(this.id, this.x, this.y);
-    ctx.fillText(this.id, this.x, this.y);
 
     // 하트 뿅뿅 파티클 렌더링
     ctx.save();

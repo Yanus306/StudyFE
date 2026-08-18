@@ -24,12 +24,22 @@ export default function RankingBoard({ rankings, maxBalls, selectedBallId, onSel
               onClick={() => onSelectBall(ball)}
               className={`flex items-center justify-between text-xs font-medium px-2.5 py-1.5 rounded-lg cursor-pointer transition-colors ${selectedBallId === ball.id ? 'bg-blue-500 text-white font-bold' : 'bg-white/50 hover:bg-white/80 text-gray-800'}`}
             >
-              <span>{index + 1}등 #{ball.id}</span>
-              <span className={selectedBallId === ball.id ? 'text-white/80' : 'text-gray-500'}>{ball.diameter}px</span>
+              {/* 순위 및 등록된 이름 표시 */}
+              <div className="flex items-center gap-2 truncate">
+                <span>{index + 1}등</span>
+                <span className="truncate max-w-[100px]">{ball.name ?? ball.title ?? '이름 없음'}</span>
+              </div>
+              
+              {/* 크기 (하트 횟수 코드 제거됨) */}
+              <div className="flex items-center gap-2 shrink-0">
+                <span className={selectedBallId === ball.id ? 'text-white/80' : 'text-gray-500'}>
+                  {ball.diameter}px
+                </span>
+              </div>
             </li>
           ))}
           {rankings.length === 0 && (
-            <li className="text-center text-xs text-gray-400 py-2">공이 없습니다</li>
+            <li className="text-center text-xs text-gray-400 py-2">등록된 반려동물이 없습니다</li>
           )}
         </ul>
       )}
