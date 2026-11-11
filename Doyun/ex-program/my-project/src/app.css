@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* ✅ .ttf 로컬 폰트 등록 */
+@font-face {
+  font-family: 'Daerong';
+  /* App.css 위치 기준 상대 경로 (src/App.css 에서 ./assets/fonts/Daerong.ttf 로 찾아감) */
+  src: url('../assets/fonts/Daerong.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ✅ 전역 폰트 적용 */
+body {
+  font-family: 'Daerong', sans-serif !important;
+}
+
+/* 팝업 등장 애니메이션 */
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 팝업 퇴장 애니메이션 */
+@keyframes popupFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+}
+
+.animate-popup-in {
+  animation: popupFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-popup-out {
+  animation: popupFadeOut 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.spin-hover {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.spin-hover:hover {
+  transform: rotate(180deg);
+}
